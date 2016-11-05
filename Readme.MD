@@ -3,13 +3,11 @@
 ### Configure NuGet Packages
 
 ```Install-Package Unity
-Install-Package Unity.Interception
-```
+Install-Package Unity.Interception```
 
 * Once Unity and Unity.Interception are installed, add to the app.config the following tags:
 
-```
-<configSections>
+```<configSections>
 <section name="unity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Microsoft.Practices.Unity.Configuration"/>
 </configSections>
 
@@ -33,5 +31,4 @@ Install-Package Unity.Interception
     <interceptionBehavior type="DiagnosticInterceptor"/>
     </register>
 </container>
-</unity>
-```
+</unity>```
