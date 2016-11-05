@@ -1,10 +1,14 @@
+# Aspect Oriented Programming
+* Aspect-oriented programming (AOP) is an approach to programming that allows global properties of a program to determine how it is compiled into an executable program. AOP can be used with object-oriented programming ( OOP ). An aspect is a subprogram that is associated with a specific property of a program.
+
 ## Setup AOP Interceptors
 
 ### Configure NuGet Packages
 
-```Install-Package Unity
-
-Install-Package Unity.Interception```
+```
+Install-Package Unity
+Install-Package Unity.Interception
+```
 
 * Once Unity and Unity.Interception are installed, add to the app.config the following tags:
 
@@ -32,4 +36,5 @@ Install-Package Unity.Interception```
     <interceptionBehavior type="DiagnosticInterceptor"/>
     </register>
 </container>
-</unity>```
+</unity>
+```
