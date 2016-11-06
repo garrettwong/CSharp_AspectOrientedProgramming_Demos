@@ -1,13 +1,6 @@
 ﻿namespace AOP
 {
-    public interface IProxy
-    {
-        bool IsEnabled();
-        void Open();
-        void Close();
-    }
-
-    public class Proxy : IProxy
+    public class AOPInstance : IAOPBase
     {
         public bool IsEnabled()
         {
@@ -22,6 +15,11 @@
         public void Close()
         {
             return;
+        }
+
+        public void Hello()
+        {
+
         }
     }
 }

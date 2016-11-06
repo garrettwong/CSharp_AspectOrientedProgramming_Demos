@@ -15,17 +15,23 @@ namespace AOP
             
         }
 
+        /// <summary>
+        /// Invoke interceptor on the IAOPBase interface
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="getNext"></param>
+        /// <returns></returns>
         public IMethodReturn Invoke(IMethodInvocation input, GetNextInterceptionBehaviorDelegate getNext)
         {
             System.Console.WriteLine(String.Format("[{0}:{1}]", this.GetType().Name, "Invoke"));
 
-            // BEFORE the target method execution
+            // PRE: BEFORE the target method execution
             System.Console.WriteLine(String.Format("{0}", input.MethodBase.ToString()));
 
-            // Yield to the next module in the pipeline
+            // EXE: Yield to the next module in the pipeline
             var methodReturn = getNext().Invoke(input, getNext);
 
-            // AFTER the target method execution
+            // POST: AFTER the target method execution
             if (methodReturn.Exception == null)
             {
                 System.Console.WriteLine(String.Format("Successfully finished {0}", input.MethodBase.ToString()));
