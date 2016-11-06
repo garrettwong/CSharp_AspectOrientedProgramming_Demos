@@ -26,7 +26,8 @@ namespace AOP
             System.Console.WriteLine(String.Format("[{0}:{1}]", this.GetType().Name, "Invoke"));
 
             // PRE: BEFORE the target method execution
-            System.Console.WriteLine(String.Format("{0}", input.MethodBase.ToString()));
+            var functionName = input.MethodBase.ToString();
+            System.Console.WriteLine(String.Format("Before executing: {0}", functionName));
 
             // EXE: Yield to the next module in the pipeline
             var methodReturn = getNext().Invoke(input, getNext);
@@ -34,11 +35,11 @@ namespace AOP
             // POST: AFTER the target method execution
             if (methodReturn.Exception == null)
             {
-                System.Console.WriteLine(String.Format("Successfully finished {0}", input.MethodBase.ToString()));
+                System.Console.WriteLine(String.Format("Successful execution: {0}", functionName));
             }
             else
             {
-                System.Console.WriteLine(String.Format("Finished {0} with exception {1}: {2}", input.MethodBase.ToString(), methodReturn.Exception.GetType().Name, methodReturn.Exception.Message));
+                System.Console.WriteLine(String.Format("Exception execution: {0}: {1}/{2}", functionName, methodReturn.Exception.GetType().Name, methodReturn.Exception.Message));
             }
 
             return methodReturn;
